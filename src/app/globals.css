@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #C9A84C;
+  --color-gold-dark: #A8893D;
+  --color-emerald: #52B788;
+  --font-outfit: "Outfit", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-outfit);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(201, 168, 76, 0.3);
+  color: #ffffff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Section divider */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Hero ambient glow */
+@keyframes ambientGlow {
+  0% {
+    transform: translate(-30%, -30%) scale(1);
+    opacity: 0.06;
+  }
+  33% {
+    transform: translate(20%, -20%) scale(1.1);
+    opacity: 0.08;
+  }
+  66% {
+    transform: translate(-10%, 20%) scale(0.95);
+    opacity: 0.05;
+  }
+  100% {
+    transform: translate(-30%, -30%) scale(1);
+    opacity: 0.06;
+  }
+}
+
+.hero-ambient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-ambient::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 50%,
+    rgba(201, 168, 76, 0.12) 0%,
+    rgba(201, 168, 76, 0.04) 40%,
+    transparent 70%
+  );
+  animation: ambientGlow 20s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Scroll indicator pulse */
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 0.7; transform: translateY(6px); }
+}
+
+.scroll-indicator {
+  animation: scrollPulse 2.5s ease-in-out infinite;
+}
+
+/* Service row hover transition */
+.service-row {
+  transition: padding-left 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.4s ease;
+}
+
+.service-row:hover {
+  padding-left: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Horizontal scroll carousel */
+.carousel-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Form styles */
+input, textarea, select {
+  font-family: var(--font-outfit);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: rgba(201, 168, 76, 0.5);
+}
