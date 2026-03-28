@@ -10,22 +10,22 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "PropErgy Management | Independent Property Governance — Cape Town",
+  title: "PropErgy Management | Specialist Building & Stakeholder Consultancy — Cape Town",
   description:
-    "PropErgy is an independent managing agent redefining how Cape Town buildings are governed, maintained, and protected.",
+    "PropErgy Management is a specialist building and stakeholder support consultancy sitting at the intersection of property law, construction, governance, and operational reality.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
     title: "PropErgy Management",
-    description: "Your building deserves better.",
-    url: "https://propergy.co.za",
+    description: "Bringing Proper Energy to Property Management",
+    url: "https://propergymanagement.co.za",
     siteName: "PropErgy Management",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
     locale: "en_ZA",
     type: "website",
   },
-  metadataBase: new URL("https://propergy.co.za"),
+  metadataBase: new URL("https://propergymanagement.co.za"),
 };
 
 export default function RootLayout({
